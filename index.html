@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<title>🌘 - to the moon! AES & Blowfish Encryption Online</title>
+	
+	<link rel="icon" type="image/x-icon" href="icon/favicon.ico">
+	<link rel="apple-touch-icon" href="/icon/apple-touch-icon.png">
+
+	<link rel="manifest" href="manifest.webmanifest">
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Marques Xiaomi" />
+	<meta name="copyright" content="Maxim Schulz" />
+	<meta name="page-topic" content="Computer" />
+	<meta http-equiv="Reply-to" content="maxim@omg.lol" />
+	<meta name="expires" content="" />
+	<meta name="revisit-after" content="2 days" />
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.bundle.js"></script>
+	<script src="js/crypto.js"></script>
+</head>
+
+<body class="d-block p-3">
+	<form class="form">
+		<div class="text-center"><h3>Name to Number</h3></div>
+		<div class="text-center"><h6 id="explanation">Enter your name and choose from three</h6></div>
+		<hr>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Name</span>
+			</div>
+			<textarea class="form-control" placeholder="Enter your name here" aria-label="Emoji" id="inputName" rows="1"></textarea>
+			<div class="input-group-append">
+				<button id="deleteName" type="button" class="btn btn-primary btn-block bg-dark">Delete</button>
+			</div>
+		</div>
+		<hr>
+		<div id="difficulty" class="mb-2">
+			Calculation power level
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="form-group">
+					<select class="form-control" id="keySlot">
+					  <option value="1">Level 1️⃣</option>
+					  <option value="2">Level 2️⃣</option>
+					  <option value="3">Level 3️⃣</option>
+					  <option value="4">Level 4️⃣</option>
+					  <option value="5">Level 5️⃣</option>
+					</select>
+				  </div>
+			</div>
+		</div>
+		<hr>
+		<hr>
+		<button id="calulate" type="button" class="btn btn-primary bg-dark btn-block mb-2">🔀 Your number</button>
+		</form>
+	<hr>
+	<div class="input-group mb-3">
+		<textarea class="form-control" aria-label="Emoji" id="out" rows="10" readonly>Look at here</textarea>
+	</div>
+	<hr>
+	<p class="text-center">
+		<b id="footerHigh">Secure on device calculation! 
+			<br>
+			No data sent. No cookies. No tracking. No logging.
+			<br>
+			<br>Sprache wechseln</b>
+	</p>
+	<div class="form-group text-center">
+		<select class="form-control" id="lang">
+			<option value="0">English 🇺🇸</option>
+			<option value="1">German 🇩🇪</option>
+		</select>
+	</div>
+
+	<div class="text-center">
+		<a href="https://github.com/mqxym/id" id="footerSource">Sourcecode (Github)</a>
+	</div>
+
+
+	<!-- 
+		Todo:
+		- translate prime calculator to js
+	-->
+
+	<script src="js/lib.js"></script>
+	<script src="js/lang.js"></script>
+
+	<script>
+		let lang = 0;
+		if (localStorage.getItem("lang")) {
+			lang = parseInt(localStorage.getItem("lang"));
+		} 
+
+		function setLanguage () {
+			$("").html(getTranslation("", lang));
+			
+		}
+
+		$(document).ready(function () {
+
+			setLanguage();
+
+			$("#calculate").click(async function () {
+			
+			});
+
+
+			$("#lang").change(function() {
+				localStorage.setItem("lang", parseInt($("#lang").val()));
+				lang = parseInt($("#lang").val());
+				setLanguage();
+			});
+
+		});
+	</script>
+</body>
+
+</html>
